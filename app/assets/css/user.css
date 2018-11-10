@@ -1,0 +1,41 @@
+section.user_plate
+{
+	position: fixed;
+	top: 0px;
+}
+section#user
+{
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+
+}
+
+div.user_plate
+{
+	position: sticky;
+	top:100px;
+	height: 10px;
+	width: 50%;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+section#user div.gallery_element div#like_box
+{
+	position:absolute;
+	background-color: rgba(0, 0, 0, 0.8);
+	width:100%;
+}
+
+section#user div.gallery_element:hover div#like_box{
+	opacity: 1;
+	transition: opacity 0.5s;
+	z-index: 500;
+}
+

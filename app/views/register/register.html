@@ -1,0 +1,26 @@
+<section id="register">
+	<div class="center">
+		<h1>
+			SING IN CAMAGRU
+		</h1>
+<?php
+if (!empty($this->prompter['fail']))
+	echo '<h2>ERROR <br><br>' . $this->prompter['fail'] . '</h2>';
+?>
+		<div class="cadre">
+			<form action="<?php echo SITE_ROOT; ?>register/checksingup/" method="POST">
+				<input type="email" name="email" value="" placeholder="Email" autocomplete="off" required>
+
+				<input type="password" name="password" minlength="8" maxlength="50"
+					placeholder="Password" value="" autocomplete="off" required>
+				<input type="password" name="passwordbis" minlength="8" maxlength="50"
+					placeholder="Re-type Password" value="" autocomplete="off" required>
+				<input type="text" name="username" value="" placeholder="Username" autocomplete="off" required>
+				<button type="submit">
+					Submit
+				</button>
+			</form>
+		</div>
+	</div>
+</section>
+

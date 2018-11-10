@@ -1,0 +1,63 @@
+.glyph{
+	background: none;
+	border: none;
+	width:100%;
+	height:100%;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.glyph:hover
+{
+	background-color: none;
+}
+
+.glyph_gallery
+{
+	background-image: url("../img/glyphicons_black/glyphicons-139-picture.png");
+}
+
+.glyph_editor
+{
+	background-image: url("../img/glyphicons_black/glyphicons-12-camera.png");
+}
+
+.glyph_user
+{
+	background-image: url("../img/glyphicons_black/glyphicons-353-nameplate.png");
+}
+
+.glyph_logout
+{
+	background-image: url("../img/glyphicons_black/glyphicons-388-log-out.png");
+}
+
+.glyph_visibility
+{
+	background-image: url("../img/glyphicons_black/glyphicons-52-eye-open.png");
+}
+
+.glyph_visibility_none
+{
+	background-image: url("../img/glyphicons_black/glyphicons-53-eye-close.png");
+}
+
+.glyph_log_in
+{
+	background-image: url("../img/glyphicons_black/glyphicons-387-log-in.png");
+}
+
+.glyph_register
+{
+	background-image: url("../img/glyphicons_black/glyphicons-30-notes-2.png");
+}
+
+.glyph_gallery_perso
+{
+	background-image: url("../img/glyphicons_black/glyphicons-738-pictures.png");
+}
+
+.glyph_bin
+{
+	background-image: url("../img/glyphicons_black/glyphicons-17-bin.png");
+}

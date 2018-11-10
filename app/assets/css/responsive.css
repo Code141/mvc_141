@@ -1,0 +1,130 @@
+@media (max-width: 700px)
+{
+	nav,
+	header
+	{
+		height:30px;
+	}
+
+	header a h1#title,
+	header a p.username
+	{
+		font-size: 20px;
+		margin: 7px 5px 0px 5px;
+	}
+
+	header a,
+	header .header_element,
+	nav a button.header_button
+	{
+		height:30px;
+	}
+
+	nav a button.header_button
+	{
+		width:32px;
+	}
+
+	div.gallery_element img
+	{
+		max-width: 150px;	
+	}
+
+	section#wrap
+	{
+		top:30px;	
+	}
+
+	aside.right img
+	{
+		margin-top:5px;	
+	}
+
+	hr
+	{
+		margin: 3px;
+	}
+
+	aside.right div.image a
+	{
+		width:20px;
+		height:20px;
+		background-size: 10px 10px;
+	}
+
+	section#user
+	{
+		width:380px;	
+	}
+
+	section#user input[type="radio"]:checked + label
+	{
+		height:100px;
+	}
+
+	input, input:placeholder-shown, textarea
+	{
+		float:none;
+	}
+
+	section#user label p.field_value
+	{
+		width:auto;
+	}
+
+	div.gallery_element
+	{
+		height:unset;
+	}
+
+	aside#focus_aside
+	{
+		position:absolute;
+		bottom:0px;
+		height:300px;
+		width : 100%;
+		max-width:unset;
+		background-color: rgba(30, 30, 20, 1);
+	}
+
+	section#focus img
+	{
+		top:42px;
+	}
+
+	section#focus
+	{
+		margin-top:30px;
+	}
+
+	#focus_aside_bottom
+	{
+		width:100%;
+	}
+
+	div#focus_aside_top
+	{
+		border:none;
+		border-top:1px solid #444;
+		border-bottom:1px solid #444;
+	}
+
+	section#user label p.field_name
+	{
+		width:100px;
+	}
+	section#user input[type="radio"]:checked + label button
+	{
+		position:relative;
+		top:42px;
+		left:-100px;
+	}
+}
+
+@media (max-width: 400px)
+{
+	div.gallery_element img
+	{
+		max-width: 100%	;
+	}
+}

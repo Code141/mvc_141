@@ -1,0 +1,24 @@
+<aside class="left">
+	<form id="mask" action="<?php echo SITE_ROOT; ?>media/add" method="POST" enctype="multipart/form-data">
+		<div id="aside_up">
+			<input id="img" type="file" name="img"  class="input-file" accept="image/*" required>
+			<label for="img" class="label-file">
+				UPLOAD<br>A FILE
+			</label>
+			<input type="submit" name="upload_btn" value="SEND FILE">
+		</div>
+
+<?php
+$first = TRUE;
+foreach ($this->data['masks'] as $mask)
+{
+?>
+		<input type="radio" name="masks" id="mask_<?php echo $mask;?>" value="<?php echo $mask;?>" required<?php if ($first) { echo " checked"; $first = FALSE;}?>>
+		<label for="mask_<?php echo $mask;?>">
+			<img src="<?php echo MEDIA_PATH . "masks/" . $mask;?>.png">
+		</label>
+<?php
+}
+?>
+	</form>
+</aside>

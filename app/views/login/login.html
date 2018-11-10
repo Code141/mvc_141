@@ -1,0 +1,31 @@
+<section id="login">
+	<div>
+		<h1>
+			LOG IN CAMAGRU
+		</h1>
+		<?php
+		 if (!empty($this->prompter['fail']))
+		 echo '<h2>ERROR <br><br>' . $this->prompter['fail'] . '</h2>';
+		 ?>
+		 <div class="cadre">
+			 <form action="<?php echo SITE_ROOT; ?>login/checklogin/" method="POST">
+				 <input type="text" name="username" value="" placeholder="Username" required>
+				 <input type="password" name="password" minlength="8" maxlength="50" placeholder="Password" value="" autocomplete="current-password" required>
+				 <button type="submit">
+					 Connect
+				 </button>
+			 </form>
+			 <p>
+			 <a href="<?php echo SITE_ROOT; ?>login/forgotten_password">
+				 Forgot password
+			 </a>
+			 </p>
+			 <p>
+			 <a href="<?php echo SITE_ROOT; ?>register/">
+				 Register
+			 </a>
+			 </p>
+
+		 </div>
+	</div>
+</section>

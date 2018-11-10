@@ -1,0 +1,30 @@
+<section id="gallery">
+<?php
+	$this->load->script('php', 'like_bar');
+	foreach ($this->data['db']['all_media'] as $media)
+	{
+?>
+	<div class="gallery_element">
+<?php
+	$url = SITE_ROOT . "like/add/" . $media["id"] . "/";
+	like_bar($media["avg_grades"], $media["nb_grades"], $url);
+?>
+		<div id="info">
+			<p id="username">
+			<a href="<?php echo SITE_ROOT . "gallery/user/" . $media["username"]; ?>">
+				<?php echo $media['username'];?>
+			</a>
+			</p>
+			<p id="date">
+				<?php  echo human_date($media['date']);?>
+			</p>
+		</div>
+		<a href="<?php echo SITE_ROOT . "gallery/focus/" . $media['id'];?>">
+			<img src="<?php echo MEDIA_PATH . "user_media/thumbs/" . $media['id'];?>.png">
+		</a>
+	</div>
+<?php
+	}
+?>
+</section>
+

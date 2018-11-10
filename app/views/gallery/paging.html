@@ -1,0 +1,55 @@
+<footer>
+		<div id="paging">
+<?php
+$offset = 2;
+$i = $this->data['paging'] - $offset;
+$i = ($i > 1) ? $i : 1;
+?>
+
+<?php
+if ($this->data['paging'] > $offset + 1)
+{
+?>
+	<a class="paging_min" href="<?php echo SITE_ROOT; ?>gallery?page=1">
+		<?php echo "1"; ?>&nbsp;&lt;&lt;
+	</a>
+<?php
+}
+?>
+
+<?php
+while ($i <= $this->data['paging'] + $offset && $i <= $this->data['paging_max'])
+{
+	if ($i == $this->data['paging'])
+	{
+?>
+	<a class="paging_center" href="<?php echo SITE_ROOT; ?>gallery?page=<?php echo $i; ?>">
+		<?php echo $i; ?>
+	</a>
+<?php
+	}
+	else
+	{
+?>
+	<a href="<?php echo SITE_ROOT; ?>gallery?page=<?php echo $i; ?>">
+		<?php echo $i; ?>
+	</a>
+<?php
+	}
+	$i++;
+}
+?>
+
+<?php
+if ($this->data['paging'] < $this->data['paging_max'] - $offset)
+{
+?>
+	<a class="paging_max" href="<?php echo SITE_ROOT; ?>gallery?page=<?php echo $this->data['paging_max']; ?>">
+		&gt;&gt;&nbsp;<?php echo $this->data['paging_max']; ?>
+	</a>
+<?php
+}
+?>
+		</div>
+
+</footer>

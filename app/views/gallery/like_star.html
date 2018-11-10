@@ -1,0 +1,27 @@
+<?php
+function	liker_bar($nb_star, $global, $link)
+{
+	echo '<div id="like_box">';
+	liker_recur($nb_star, $global, $link);
+	echo '</div>';
+}
+?>
+
+<?php
+function	liker_recur($nb_star, $global, $link, $step = 0)
+{
+?>
+			<div class="liker">
+			<a href="<?php echo $link . $step;?>" class="glyph_star_left<?php if ($step < $global) echo " star_liked";?>">
+				</a>
+				<div class="liker">
+					<a href="<?php echo $link . ($step + 1);?>" class="glyph_star_right<?php if ($step + 1< $global) echo " star_liked";?>">
+					</a>
+<?php
+	if ($step +2 < $nb_star * 2)
+		liker_recur($nb_star, $global, $link, $step + 2);
+?>
+				</div>
+			</div>
+<?php
+}

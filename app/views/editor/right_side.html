@@ -1,0 +1,21 @@
+<aside class="right">
+	<div id="user_picturs">
+<?php
+
+
+
+foreach ($this->data['db']['user_media'] as $user_media)
+{
+?>
+		<div class="image">
+			<img src="<?php echo MEDIA_PATH . "user_media/thumbs/" . $user_media['id'];?>.png">
+			<a class="delete_picture glyph_bin" href="<?php echo SITE_ROOT . "media/delete/" . $user_media['id'];?>">
+			</a>
+		</div>
+<hr>
+<?php
+}
+?>
+	</div>
+</aside>
+

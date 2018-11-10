@@ -1,0 +1,52 @@
+
+div#paging
+{
+	position: relative;
+	left: auto;
+	right: auto;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+
+}
+
+div.sort
+{
+	margin: 0px 15px 0px 0px;
+	display: inline; 
+}
+
+div#paging a
+{
+	display: block;
+	float: left;
+	margin: auto 7px auto 7px;;
+	height: 100%;
+	width: 20px;
+	color: white;
+	text-align: center;
+}
+
+div#paging a.paging_center
+{
+	font-size: 26px;
+	font-weight: bold;
+	margin: 0px 10px 0px 10px;
+	width: auto;
+}
+
+div#paging a.paging_min,
+div#paging a.paging_max
+{
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div#opt_sort
+{
+	position:absolute;
+	right: 10px;
+	top: 10px;
+}
+

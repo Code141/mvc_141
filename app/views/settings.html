@@ -1,0 +1,109 @@
+<section id="user">
+	<h1>
+		General Account Settings
+	</h1>
+	<input type="radio" name="field" value="username" id="radio_username" required>
+	<label for="radio_username">
+		<p class="field_name">
+			username :
+		</p>
+		<p class="field_value">
+			<?php echo $_SESSION['user']['username']; ?>
+		</p>
+		<p class="modify">
+			Modify
+		</p>
+		<div class="hidden">
+			<form action="<?php echo SITE_ROOT; ?>settings/update_username/" method="POST">
+				<input type="text" name="username"  placeholder="New username" class="row">
+				<button type="submit">
+					Modify
+				</button>
+			</form>
+		</div>
+	</label>
+	<input type="radio" name="field" value="email" id="radio_email" required>
+	<label for="radio_email">
+		<p class="field_name">
+			Email :
+		</p>
+		<p class="field_value">
+			<?php echo $_SESSION['user']['email']; ?>
+		</p>
+		<p class="modify">
+			Modify
+		</p>
+		<div class="hidden">
+			<form action="<?php echo SITE_ROOT; ?>settings/update_email/" method="POST">
+				<input type="email" name="email" placeholder="New email" class="row">
+				<button type="submit">
+					Modify
+				</button>
+			</form>
+		</div>
+	</label>
+	<input type="radio" name="field" value="password" id="radio_password" required>
+	<label for="radio_password">
+		<p class="field_name">
+			Password :
+		</p>
+		<p class="field_value">
+			<?php echo  str_repeat("•", $_SESSION['user']['password_length']); ?>
+		</p>
+		<p class="modify">
+			Modify
+		</p>
+		<div class="hidden">
+			<form action="<?php echo SITE_ROOT; ?>settings/update_password/" method="POST">
+				<input type="password" name="password" placeholder="New Password" autocomplete="new-password" class="row">
+				<input type="password" name="passwordbis" placeholder="Re-Type New Password" autocomplete="new-password" class="row">
+				<button type="submit">
+					Modify
+				</button>
+			</form>
+		</div>
+	</label>
+	<input type="radio" name="field" value="notif" id="radio_notif" required>
+	<label for="radio_notif">
+		<p class="field_name">
+			Notifications :
+		</p>
+		<p class="field_value">
+<?php
+if (!empty($_SESSION['user']['n_like']))
+	echo "<span>Like</span>";
+if (!empty($_SESSION['user']['n_comm']))
+	echo "<span>Comment</span>";
+if (!empty($_SESSION['user']['n_msg']))
+	echo "<span>Message</span>";
+if (empty($_SESSION['user']['n_like'])
+	&& empty($_SESSION['user']['n_comm'])
+	&& empty($_SESSION['user']['n_msg']))
+	echo "<span>Never</span>";
+?>
+		</p>
+		<p class="modify">
+			Modify
+		</p>
+		<div class="hidden">
+			<form action="<?php echo SITE_ROOT; ?>settings/update_notifications/" method="POST">
+				<input type="checkbox" id="n_like" name="n_like" value="1" <?php if (!empty($_SESSION['user']['n_like'])){echo "checked";} ?> >
+				<label for="n_like" class="notif_check">
+					Like
+				</label>
+				<input type="checkbox" id="n_comm" name="n_comm" value="1" <?php if (!empty($_SESSION['user']['n_comm'])){echo "checked";} ?> >
+				<label for="n_comm" class="notif_check">
+					Comment
+				</label>
+				<input type="checkbox" id="n_msg" name="n_msg" value="1" <?php if (!empty($_SESSION['user']['n_msg'])){echo "checked";} ?> >
+				<label for="n_msg" class="notif_check">
+					Message
+				</label>
+
+				<button type="submit">
+					Modify
+				</button>
+			</form>
+		</div>
+	</label>
+</section>

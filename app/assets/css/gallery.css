@@ -1,0 +1,94 @@
+/*------------- GALLERIE -------------*/
+
+section#gallery 
+{
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+section#gallery:after {
+	content: "";
+	flex: auto;
+}
+
+
+div.gallery_element
+{
+	position:relative;
+	margin-bottom: 25px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 238px;
+	min-width: 140px;
+}
+
+div.gallery_element img
+{
+	display: block;
+	width: auto;
+	height: auto;
+	max-height:200px;
+	max-width:300px;
+	margin: auto;
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);
+}
+
+div.gallery_element div#info {
+	height: 20px;
+	border-bottom: 1px dotted #777;
+	color: white;
+	left:0px;
+	right: 0px;
+	margin: 7px 0px 10px 0px;
+}
+
+div.gallery_element:hover div#info{
+	opacity: 1;
+	transition: opacity 0.5s;
+}
+
+div.gallery_element:hover img{
+	opacity: 0.8;
+	transition: opacity 0.5s;
+}
+
+div.gallery_element div#info p#username {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	max-width:45%;
+}
+
+div.gallery_element div#info p#date {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: right;
+}
+
+
+
+
+
+div.gallery_element div#like_box {
+	position:absolute;
+	bottom: 0px;
+	background-color: rgba(0, 0, 0, 0.8);
+	width:100%;
+	opacity: 0;
+}
+
+div.gallery_element:hover div#like_box{
+	opacity: 1;
+	transition: opacity 0.5s;
+	z-index: 500;
+}
+

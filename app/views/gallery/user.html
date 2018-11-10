@@ -1,0 +1,40 @@
+<section class="user_plate">
+	<?php echo $this->data['db']['user']['username']; ?>
+	<hr>
+</section>
+
+<section id="user">
+
+<?php
+	$this->load->script('php', 'like_bar');
+	if (!empty($this->data['db']['user_media']))
+	foreach ($this->data['db']['user_media'] as $media)
+	{
+?>
+		<div class="gallery_element">
+			<div id="info">
+
+<?php
+	$url = SITE_ROOT . "like/add/" . $media["id"] . "/";
+	like_bar($media["avg_grades"], $media["nb_grades"], $url);
+?>
+				<p id="date">
+					<?php  echo human_date($media['date']);?>
+				</p>
+			</div>
+
+
+
+<a href="<?php echo SITE_ROOT . "gallery/focus/" . $media['id'];?>">
+			<img src="<?php echo MEDIA_PATH . "user_media/thumbs/" . $media['id'];?>.png">
+</a>
+		</div>
+<?php
+	}
+	else
+	{
+		echo "<p>No pictures yet !</p>";
+	}
+?>
+</section>
+
