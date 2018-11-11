@@ -1,19 +1,27 @@
 <?php
 
-class Loader
+class loader
 {
 	public function controller($controller)
 	{
-		if (is_readable(APP_PATH.'controllers/' . $controller . '.php'))
-			require_once(APP_PATH.'controllers/' . $controller . '.php');
+		if (is_readable(APP_PATH .'controllers/' . $controller . '.php'))
+			require_once(APP_PATH .'controllers/' . $controller . '.php');
 		else
 			$controller = "controller";
-
-		if (!class_exists($controller))
-			$controller = "controller";
-		return (new $controller());
+		$called_controller = "c_" . $controller;
+		return (new $called_controller);
 	}
 
+	public function view($view)
+	{
+		if (is_readable(APP_PATH .'views/' . $view . '.php'))
+			require_once(APP_PATH .'views/' . $view . '.php');
+		else
+			$view = "view";
+		$called_view = "v_" . $view;
+		return (new $called_view);
+	}
+		IR	EFEERGERGERGEGR
 	public function model($model_file, $model, $params = NULL)
 	{
 		require_once(APP_PATH . 'models/' . $model_file . '.php');
@@ -32,6 +40,13 @@ class Loader
 		require_once(APP_PATH . 'script/' . $type . '/' . $file . '.' . $type);
 		return ($data);
 	}
+
+	public function html($file)
+	{
+		require(APP_PATH . 'html/' . $file . '.html');
+	}
+
+
 
 }
 

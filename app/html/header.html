@@ -23,9 +23,9 @@
 	</div>
 <?php
 	if (is_loggued())
-		$this->load_view('login/user_loggued');
+		$this->html('login/user_loggued');
 	else
-		$this->load_view('login/to_log');
+		$this->html('login/to_log');
 ?>
 </header>
 

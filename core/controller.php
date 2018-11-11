@@ -1,42 +1,17 @@
 <?php
 
-class controller
+class c_controller
 {
 	public $data = array();
-	public $files = array(
-		"views" => array(),
-		"css" => array(),
-		"js" => array()
-	);
 	public $prompter = array(
 		"success" => "",
 		"fail" => "");
-
+	
 	public function __construct()
 	{
-		$this->reset_controller();
-		$this->load = new Loader();
+		$this->load = new loader();
 		$this->load->entity('user');
 		$this->load->entity('email');
-	}
-
-	protected function reset_controller()
-	{
-		$this->data = array();
-		$this->files = array(
-			"views" => array(),
-			"css" => array(),
-			"js" => array()
-		);
-		$this->prompter = array(
-			"success" => "",
-			"fail" => "");
-		$this->files['js'][] = 'init';
-	}
-
-	protected function load_view($file)
-	{
-		require(APP_PATH . 'views/' . $file . '.html');
 	}
 
 	private function protect_html_injection(array $data)
@@ -58,61 +33,12 @@ class controller
 		$_SESSION['last_url']['params'] = $params;
 	}
 
-	protected function	render()
-	{
-		$this->data = $this->protect_html_injection($this->data);
-		if (is_ajax_query())
-			$this->ajax_render();
-		else
-			$this->regular_render();
-	}
-
-	private function ajax_render()
-	{
-		foreach($this->files['views'] as $key => $filename)
-		{
-			ob_start();
-			$this->load_view($filename);
-			$html_file =  ob_get_contents();
-			$html_file = str_replace(array("\t", "\r", "\n"), "", $html_file);
-			$html[$key] = $html_file;
-			ob_clean();
-		}
-		$data = array(
-			"prompter" => $this->prompter,
-			"html" => $html
-		);
-		$json_response = json_encode($data);
-		header("Content-Type: application/json");
-		echo ($json_response);
-	}
-
-	private function regular_render()
-	{
-		$basic_css[] = 'reset';
-		$basic_css[] = 'style';
-		$basic_css[] = 'input';
-		$basic_css[] = 'glyphicons';
-		$this->files['css'] = array_merge($basic_css, $this->files['css']);
-		$this->files['css'][] = 'responsive';
-
-		$this->files['js'][] = 'lunch';
-		if (!isset($this->files['views']['header']))
-			$this->files['views']['header'] = 'header';
-		if (!isset($this->files['views']['center']))
-			$this->files['views']['center'] = 'msg';
-		if (!isset($this->files['views']['footer']))
-			$this->files['views']['footer'] = 'footer';
-		$this->load_view("default_layout");
-	}
-
 	public function error_404()
 	{
-		$this->reset_controller();
 		$this->data['title'] = "Error 404";
 		$this->files['views']['center'] = '404';
 		http_response_code(404);
-		$this->render();
+		//	$this->view();
 	}
 
 	protected function fail($msg = NULL, $action = NULL, $controller = NULL, $params = NULL)
@@ -179,7 +105,7 @@ class controller
 	}
 }
 
-class controller_restricted extends controller
+class c_logged_only extends c_controller
 {
 	public function __construct()
 	{
@@ -189,7 +115,7 @@ class controller_restricted extends controller
 	}
 }
 
-class controller_public_only extends controller
+class c_public_only extends c_controller
 {
 	public function __construct()
 	{

@@ -1,12 +1,10 @@
 <?php
 
-class home extends controller
+class c_home extends c_controller
 {
 	public function main($params = NULL)
 	{
-		$this->data['title'] = "Home";
-		$this->files['css'][] = 'home';
-		$this->files['views']['center'] = 'home';
-		$this->render();
+		$this->view = $this->load->view("home");
+		$this->view->main();
 	}
 }
